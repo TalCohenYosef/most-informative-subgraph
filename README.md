@@ -30,57 +30,48 @@ cd most-informative-subgraph
 
 ### External Dependency: Subgraph Filter Suite
 
-The experimental pipeline uses [subgraph_filter_suit](https://github.com/yaelgin2/subgraph_filter_suit), a C++ library for subgraph matching and filtering.
+The experiments use the publicly available [Subgraph Filter Suite](https://github.com/subgraph-filter-suit-project/subgraph_filter_suit), a C++ library for subgraph matching and filtering.
 
-The experiments reported in the paper were conducted using the following version:
+The exact version used in the experiments is:
 
-- **Repository:** `yaelgin2/subgraph_filter_suit`
-- **Branch:** `develop`
 - **Commit:** `b4a90b08a2d418b137f06edd09044da400b567d8`
 
-The specified commit identifies the exact version used in the experiments, ensuring that the dependency can be reproduced independently of future updates to the library.
+To obtain the dependency:
 
-#### Requirements
+```bash
+git clone https://github.com/subgraph-filter-suit-project/subgraph_filter_suit.git
+cd subgraph_filter_suit
+git checkout b4a90b08a2d418b137f06edd09044da400b567d8
+```
+
+Build requirements and compilation instructions are provided below.
+
+#### Build Requirements
+
+The Subgraph Filter Suite library requires:
 
 - CMake 3.16 or newer
-- C++17-compatible compiler (GCC 7+, Clang 5+, or MSVC 19.14+)
-- Boost 1.76 or newer, including Graph, Log, Log Setup, and JSON
-- Boost Program Options for the command-line tools
+- A C++17-compatible compiler (GCC 7+, Clang 5+, or MSVC 19.14+)
+- Boost 1.76 or newer, including Graph, Log, Log Setup, JSON, and Program Options (for CLI tools)
 - Internet access during the initial build to retrieve GoogleTest
 
 CUDA is optional and is required only for GPU-accelerated processing.
 
-#### Installation and Build
+#### Building the C++ Tools
 
-Clone the dependency repository (requires access to the private repository):
-
-```bash
-git clone git@github.com:yaelgin2/subgraph_filter_suit.git
-cd subgraph_filter_suit
-```
-
-Check out the exact version used in the experiments:
-
-```bash
-git checkout b4a90b08a2d418b137f06edd09044da400b567d8
-```
-
-Build the C++ tools:
+From the `subgraph_filter_suit` directory, run:
 
 ```bash
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build --config Release --parallel
 ```
 
-The build produces three command-line tools:
+The build produces three executables:
 
 - `sgf-graph-enumerator` — Motif and path enumeration and filtering.
 - `sgf-pattern-finder` — Pattern preprocessing and filtering.
 - `sgf-graph-searcher` — Exact subgraph isomorphism.
 
-For additional configuration and usage instructions, refer to the dependency's documentation.
-
-**Access note:** The dependency repository is currently private. Access to the exact source version must be provided to reviewers through an approved distribution method.
 
 ## Reproducing the Experimental Results
 
@@ -90,4 +81,8 @@ Detailed execution instructions, configurations, and parameters will be added as
 
 ## Reproducing the Figures
 
-The `figures/`
+The `figures/` directory will contain the scripts used to reproduce the figures presented in the paper.
+
+## Data
+
+The `data/` directory will contain the input datasets and experimental results required for reproduction.
