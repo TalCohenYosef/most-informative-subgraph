@@ -9,6 +9,13 @@
 - Figure 6 is reproduced from saved summaries; pattern JSON files are outside
   scope and are not a blocker.
 
+## Migration provenance
+
+Repository artifacts were copied from the original experiment workspace; the
+original files were not modified. Scientific calculations were retained, while
+machine-specific path and import defaults were adjusted only in repository
+copies where required for portability.
+
 ## Remaining issues
 
 ### Figure 2
@@ -60,9 +67,9 @@ documented before interpreting runtime measurements as independently repeatable.
 
 The repository contains final extracted reference/query graph payloads, their
 summaries, original-label recovery results, and extraction code. Original raw
-source datasets are excluded from Git. Source versions, licenses, checksums,
-acquisition instructions, exact extraction seed, and candidate-rejection counts
-still need documentation before reviewers can rerun extraction end to end.
+source datasets are excluded from Git because of their size. Sources, licenses,
+and acquisition instructions are documented in `DATA.md` and the main README.
+The exact extraction seed and candidate-rejection counts remain undocumented.
 
 ### Validation boundary
 
@@ -73,5 +80,10 @@ hashes differ because the saved artifacts were produced by Matplotlib 3.7.1 and
 the clean environment resolves 3.7.3. Figure 5's derived aggregate CSV is
 byte-identical. Figure 3 is numerically reproducible but retains the layout
 differences described above. No status is upgraded to “fully reproducible”
-because the underlying experiments were not rerun. See
-`CLEAN_ENVIRONMENT_VALIDATION.md` for exact versions and hashes.
+because the underlying experiments were not rerun.
+
+The validated environment resolved Python 3.11.17, Matplotlib 3.7.3, NetworkX
+3.1, NumPy 1.24.4, pandas 1.5.3, SciPy 1.10.1, scikit-learn 1.3.2, PyTorch
+2.0.1 (CPU), and MKL 2024.0.0. The `mkl<2024.1` constraint in
+`environment.yml` avoids an incompatibility observed with PyTorch 2.0.1 and
+newer MKL releases.

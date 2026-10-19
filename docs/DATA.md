@@ -29,11 +29,26 @@ numbered query graphs, and extraction summaries for BookChild, SportsFit, and
 ogbn-arxiv. The extraction implementation is included at
 `data/generation_code/realworld/extract_disjoint_color_graphs_random_frontier.py`.
 
-The original source files under `data/raw/realworld/` are present only in the
-local preparation workspace and are excluded from Git because of size and
-redistribution/provenance constraints. Reviewers can inspect and use the final
-extracted graphs, but cannot rerun extraction from the original source inputs
-from a GitHub clone alone unless those inputs are separately obtained.
+The source files under `data/raw/realworld/` are excluded from ordinary Git
+because of their size. Reviewers can obtain them from the authoritative sources
+below using the download instructions in the main `README.md`, then rerun the
+included extraction pipeline.
+
+### Sources and licenses
+
+- **BookChild and SportsFit:** cited as reference **[24]** in the manuscript.
+  The graph and label files are distributed by the authors through the
+  [Graph-COM Text-Attributed-Graphs dataset](https://huggingface.co/datasets/Graph-COM/Text-Attributed-Graphs),
+  whose dataset card declares the
+  [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+- **ogbn-arxiv:** cited as reference **[10]** in the manuscript and obtained
+  from the [Open Graph Benchmark](https://ogb.stanford.edu/docs/nodeprop/#ogbn-arxiv).
+  OGB lists this dataset under the
+  [Open Data Commons Attribution License (ODC-BY 1.0)](https://opendatacommons.org/licenses/by/1-0/).
+
+The repository uses these existing manuscript citations and does not introduce
+separate academic references. Authoritative download commands and the expected
+placement under `data/raw/realworld/` are provided in the main `README.md`.
 
 ## Saved results
 

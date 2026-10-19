@@ -26,7 +26,8 @@ Manual conceptual schematic. No computational script is required.
   across the nine query/reference color-distribution pairs.
 - Clean-environment validation: all numerical panels regenerate, including the
   21.5% and 0.2% Graphlets cells. The reconstructed composite is not visually
-  identical to the saved paper figure; see `CLEAN_ENVIRONMENT_VALIDATION.md`.
+  identical to the saved paper figure because of the layout differences
+  documented in `REPRODUCIBILITY.md`.
 - Status: plot reproducible numerically; final layout remains unresolved.
 
 ## Figure 4 — VISTA versus Graphlets Enumeration
