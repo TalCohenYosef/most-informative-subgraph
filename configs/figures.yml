@@ -1,0 +1,24 @@
+figure_1:
+  type: manual_schematic
+  script: null
+figure_2:
+  script: figures/figure_02/plot.py
+  output: figures/figure_02/figure_02.png
+  status: plot_reproducible_byte_identical_validation_unverified_values
+figure_3:
+  script: figures/figure_03/plot.py
+  output: figures/figure_03/figure_03.png
+  graphlets_degree_reduction: maximum_across_color_distribution_pairs
+  status: pending_visual_validation
+figure_4:
+  script: figures/figure_04/plot.py
+  output: figures/figure_04/figure_04.png
+  status: plot_reproducible_byte_identical_validation
+figure_5:
+  script: figures/figure_05/plot.py
+  output: figures/figure_05/figure_05.png
+  status: plot_reproducible_byte_identical_validation
+figure_6:
+  script: figures/figure_06/plot.py
+  output: figures/figure_06/figure_06.png
+  status: plot_reproducible_byte_identical_validation

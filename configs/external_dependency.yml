@@ -1,0 +1,8 @@
+subgraph_filter_suite:
+  repository: https://github.com/subgraph-filter-suit-project/subgraph_filter_suit
+  commit: b4a90b08a2d418b137f06edd09044da400b567d8
+  executables:
+    - sgf-pattern-finder
+    - sgf-graph-enumerator
+    - sgf-graph-searcher
+  vendored: false

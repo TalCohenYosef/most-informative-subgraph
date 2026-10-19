@@ -1,0 +1,18 @@
+query_configurations: 12
+queries_per_configuration: 1000
+reference_graphs_per_configuration: 12
+alive_fraction: 0.03
+minimum_support_count: 30
+patterns_requested: 300
+miner_threads: 2
+miner_batch_size: 3
+maximum_pattern_vertices:
+  degree_3: 20
+  degree_5: 20
+  degree_8: 15
+  degree_15: 15
+preprocess_timeout_seconds: 10800
+search_timeout_seconds: 120
+miner_memory_gib: 160
+search_memory_gib: 24
+saved_results: data/results/vista_plus

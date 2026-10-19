@@ -1,0 +1,32 @@
+benchmark_policy: documented_replacement
+original_payload_distributed: false
+generated_payload_committed: false
+generator: data/generation_code/gnp/generate_gnp_benchmark.py
+generator_notes: data/generation_code/gnp/README.md
+original_manifest: data/generated/gnp/BENCHMARK_MANIFEST.csv
+original_seed: unknown
+expected_reference_graphs: 12
+expected_query_graphs: 12000
+vertices_per_reference: 50000
+query_vertices_inclusive: [1500, 2000]
+queries_per_configuration: 1000
+color_families:
+  - average
+  - rare
+  - uniform
+target_average_degrees:
+  - 3
+  - 5
+  - 8
+  - 15
+colors: 20
+connectivity_repair:
+  original_rule: unknown
+  replacement_rule: random_component_order_and_uniform_random_component_vertices
+excluded_historical_files:
+  - input_color_uniform_deg_8/S_10_swap01_connected.json
+  - input_color_uniform_deg_8/S_10.before_color0_triangle.json
+nominal_color_percentages:
+  uniform: [5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00, 5.00]
+  average: [19.52, 17.57, 14.65, 11.73, 9.73, 5.85, 4.87, 3.89, 2.93, 1.95, 0.98, 0.98, 0.97, 0.97, 0.97, 0.49, 0.48, 0.49, 0.49, 0.49]
+  rare: [24.97, 16.68, 14.57, 12.53, 10.42, 5.21, 5.21, 4.15, 3.12, 2.09, 0.10, 0.10, 0.10, 0.10, 0.11, 0.11, 0.10, 0.10, 0.10, 0.11]

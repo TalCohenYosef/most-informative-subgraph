@@ -1,19 +1,44 @@
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
 .pytest_cache/
+.mypy_cache/
 
-# Virtual environments
+# Environments and editor files
 .venv/
-venv/
-
-# Local files
+.conda-env/
+.conda-pkgs/
+.validation/
+.external/
 .env
-.vscode/
 .idea/
+.vscode/
+*.swp
+
+# Generated plot scratch files
+figures/output/*_validation.*
+
+# Generated GNP payloads are reproducible replacements and are not committed.
+data/generated/gnp/files/
+data/generated/gnp/references/*
+!data/generated/gnp/references/.gitkeep
+data/generated/gnp/queries/*
+!data/generated/gnp/queries/.gitkeep
+data/generated/gnp/*.tar
+data/generated/gnp/*.tar.gz
+data/generated/gnp/*.zip
+
+# Large original real-world source datasets are not published in this repository.
+data/raw/realworld/*/*
+!data/raw/realworld/*/.gitkeep
+
+# Expensive caches and intermediate experiment outputs
+**/caches/
+**/miner_batches/
+**/logs/
+*.log
+**/checkpoints/
+
+# OS files
 .DS_Store
 Thumbs.db
-
-# Jupyter
-.ipynb_checkpoints/

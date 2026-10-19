@@ -1,0 +1,14 @@
+{
+  "G_name": "G_rare_deg_3",
+  "G_path": "/home2/cohent59/subgraph_filter_suit/gnp_dataset/graphs_deg_5/G_rare_deg_3.json",
+  "total_S": 1000,
+  "patterns_requested": 300,
+  "patterns_generated": 300,
+  "patterns_meeting_threshold": 300,
+  "eliminated_S": 999,
+  "eliminated_percent": 99.9,
+  "not_eliminated_by_generated_patterns": 1,
+  "undetermined_S": 0,
+  "incomplete_pattern_checks_on_G": 0,
+  "G_search_seconds": 234.626326
+}

@@ -1,0 +1,19 @@
+{
+  "pattern_generation_seconds": 1330.072399,
+  "S_verification_seconds": 15473.383036,
+  "all_G_search_seconds": 2807.073241,
+  "G_search_seconds": {
+    "G_average_deg_15": 316.503472,
+    "G_average_deg_3": 190.888232,
+    "G_average_deg_5": 208.886434,
+    "G_average_deg_8": 229.690801,
+    "G_rare_deg_15": 661.318841,
+    "G_rare_deg_3": 230.86312,
+    "G_rare_deg_5": 246.581616,
+    "G_rare_deg_8": 272.232064,
+    "G_uniform_deg_15": 161.144584,
+    "G_uniform_deg_3": 77.663261,
+    "G_uniform_deg_5": 94.404324,
+    "G_uniform_deg_8": 114.468013
+  }
+}

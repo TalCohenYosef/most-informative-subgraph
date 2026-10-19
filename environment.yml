@@ -1,0 +1,19 @@
+name: most-informative-subgraph
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - matplotlib=3.7
+  - networkx=3.1
+  - numpy=1.24
+  - pandas=1.5
+  - scipy=1.10
+  - scikit-learn=1.3
+  - pytorch=2.0
+  # PyTorch 2.0 CPU builds require the legacy ITT symbols removed by newer MKL.
+  - mkl<2024.1
+  - pip
+  - pip:
+      # Required to deserialize the raw real-world PyG Data objects.
+      - torch-geometric==2.8.0.post1

@@ -1,0 +1,26 @@
+{
+  "input_dir": "/home2/cohent59/subgraph_filter_suit/gnp_dataset/input_color_uniform_deg_3",
+  "graph_dir": "/home2/cohent59/subgraph_filter_suit/gnp_dataset/graphs_deg_5",
+  "S_count": 1000,
+  "G_count": 12,
+  "alive_fraction": "0.03",
+  "required_support_count": 30,
+  "patterns_requested": 300,
+  "miner_threads": 2,
+  "miner_batch_size": 3,
+  "max_pattern_vertices": 20,
+  "preprocess_timeout_seconds": 10800,
+  "search_timeout_seconds": 120,
+  "miner_memory_gb": 160,
+  "search_memory_gb": 24,
+  "membership_mode": "exhaustive exact search over every S for every generated pattern",
+  "meaning": "An S is eliminated for a G only when exact search confirms a pattern in S and absent from G.",
+  "S_index_meaning": "S_i filename number (1-based)",
+  "saved_outputs": [
+    "G_summary.txt",
+    "timings.json",
+    "pattern_to_S_indices.json",
+    "G_*/summary.json",
+    "G_*/remaining_S_indices.json"
+  ]
+}

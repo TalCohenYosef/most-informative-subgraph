@@ -1,0 +1,12 @@
+G_average_deg_15: 1000/1000 S eliminated (0 undetermined); G search 303.465s
+G_average_deg_3: 1000/1000 S eliminated (0 undetermined); G search 191.967s
+G_average_deg_5: 1000/1000 S eliminated (0 undetermined); G search 210.682s
+G_average_deg_8: 1000/1000 S eliminated (0 undetermined); G search 232.037s
+G_rare_deg_15: 1000/1000 S eliminated (0 undetermined); G search 890.751s
+G_rare_deg_3: 1000/1000 S eliminated (0 undetermined); G search 234.979s
+G_rare_deg_5: 1000/1000 S eliminated (0 undetermined); G search 253.007s
+G_rare_deg_8: 1000/1000 S eliminated (0 undetermined); G search 277.392s
+G_uniform_deg_15: 1000/1000 S eliminated (0 undetermined); G search 164.020s
+G_uniform_deg_3: 1000/1000 S eliminated (0 undetermined); G search 78.626s
+G_uniform_deg_5: 1000/1000 S eliminated (0 undetermined); G search 95.457s
+G_uniform_deg_8: 1000/1000 S eliminated (0 undetermined); G search 115.984s

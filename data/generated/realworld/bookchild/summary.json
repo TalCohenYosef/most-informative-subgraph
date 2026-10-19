@@ -1,0 +1,825 @@
+{
+  "background": {
+    "filename": "G.json",
+    "nodes": 7129,
+    "edges": 13301,
+    "colors": 24,
+    "avg_degree": 3.731519147145462,
+    "triangles": 7589
+  },
+  "queries": [
+    {
+      "filename": "queries/S_1.json",
+      "nodes": 461,
+      "edges": 612,
+      "colors": 24,
+      "avg_degree": 2.6550976138828633,
+      "triangles": 128
+    },
+    {
+      "filename": "queries/S_2.json",
+      "nodes": 533,
+      "edges": 799,
+      "colors": 19,
+      "avg_degree": 2.9981238273921202,
+      "triangles": 278
+    },
+    {
+      "filename": "queries/S_3.json",
+      "nodes": 674,
+      "edges": 1167,
+      "colors": 22,
+      "avg_degree": 3.462908011869436,
+      "triangles": 875
+    },
+    {
+      "filename": "queries/S_4.json",
+      "nodes": 789,
+      "edges": 1287,
+      "colors": 22,
+      "avg_degree": 3.2623574144486693,
+      "triangles": 643
+    },
+    {
+      "filename": "queries/S_5.json",
+      "nodes": 566,
+      "edges": 835,
+      "colors": 22,
+      "avg_degree": 2.950530035335689,
+      "triangles": 395
+    },
+    {
+      "filename": "queries/S_6.json",
+      "nodes": 867,
+      "edges": 1435,
+      "colors": 21,
+      "avg_degree": 3.3102652825836216,
+      "triangles": 600
+    },
+    {
+      "filename": "queries/S_7.json",
+      "nodes": 525,
+      "edges": 731,
+      "colors": 21,
+      "avg_degree": 2.7847619047619045,
+      "triangles": 179
+    },
+    {
+      "filename": "queries/S_8.json",
+      "nodes": 792,
+      "edges": 1220,
+      "colors": 21,
+      "avg_degree": 3.080808080808081,
+      "triangles": 516
+    },
+    {
+      "filename": "queries/S_9.json",
+      "nodes": 719,
+      "edges": 1138,
+      "colors": 21,
+      "avg_degree": 3.165507649513213,
+      "triangles": 398
+    },
+    {
+      "filename": "queries/S_10.json",
+      "nodes": 856,
+      "edges": 1254,
+      "colors": 22,
+      "avg_degree": 2.9299065420560746,
+      "triangles": 351
+    },
+    {
+      "filename": "queries/S_11.json",
+      "nodes": 492,
+      "edges": 693,
+      "colors": 20,
+      "avg_degree": 2.817073170731707,
+      "triangles": 192
+    },
+    {
+      "filename": "queries/S_12.json",
+      "nodes": 734,
+      "edges": 1140,
+      "colors": 22,
+      "avg_degree": 3.106267029972752,
+      "triangles": 546
+    },
+    {
+      "filename": "queries/S_13.json",
+      "nodes": 853,
+      "edges": 1490,
+      "colors": 22,
+      "avg_degree": 3.4935521688159437,
+      "triangles": 813
+    },
+    {
+      "filename": "queries/S_14.json",
+      "nodes": 664,
+      "edges": 1036,
+      "colors": 21,
+      "avg_degree": 3.1204819277108435,
+      "triangles": 561
+    },
+    {
+      "filename": "queries/S_15.json",
+      "nodes": 595,
+      "edges": 846,
+      "colors": 21,
+      "avg_degree": 2.8436974789915967,
+      "triangles": 231
+    },
+    {
+      "filename": "queries/S_16.json",
+      "nodes": 554,
+      "edges": 759,
+      "colors": 19,
+      "avg_degree": 2.740072202166065,
+      "triangles": 187
+    },
+    {
+      "filename": "queries/S_17.json",
+      "nodes": 631,
+      "edges": 937,
+      "colors": 22,
+      "avg_degree": 2.969889064976228,
+      "triangles": 387
+    },
+    {
+      "filename": "queries/S_18.json",
+      "nodes": 832,
+      "edges": 1300,
+      "colors": 21,
+      "avg_degree": 3.125,
+      "triangles": 446
+    },
+    {
+      "filename": "queries/S_19.json",
+      "nodes": 786,
+      "edges": 1273,
+      "colors": 22,
+      "avg_degree": 3.2391857506361323,
+      "triangles": 618
+    },
+    {
+      "filename": "queries/S_20.json",
+      "nodes": 502,
+      "edges": 723,
+      "colors": 19,
+      "avg_degree": 2.8804780876494025,
+      "triangles": 326
+    },
+    {
+      "filename": "queries/S_21.json",
+      "nodes": 436,
+      "edges": 641,
+      "colors": 20,
+      "avg_degree": 2.9403669724770642,
+      "triangles": 323
+    },
+    {
+      "filename": "queries/S_22.json",
+      "nodes": 814,
+      "edges": 1287,
+      "colors": 22,
+      "avg_degree": 3.1621621621621623,
+      "triangles": 496
+    },
+    {
+      "filename": "queries/S_23.json",
+      "nodes": 567,
+      "edges": 806,
+      "colors": 21,
+      "avg_degree": 2.8430335097001764,
+      "triangles": 276
+    },
+    {
+      "filename": "queries/S_24.json",
+      "nodes": 461,
+      "edges": 778,
+      "colors": 21,
+      "avg_degree": 3.3752711496746204,
+      "triangles": 564
+    },
+    {
+      "filename": "queries/S_25.json",
+      "nodes": 772,
+      "edges": 1323,
+      "colors": 22,
+      "avg_degree": 3.4274611398963732,
+      "triangles": 850
+    },
+    {
+      "filename": "queries/S_26.json",
+      "nodes": 812,
+      "edges": 1273,
+      "colors": 21,
+      "avg_degree": 3.1354679802955663,
+      "triangles": 531
+    },
+    {
+      "filename": "queries/S_27.json",
+      "nodes": 795,
+      "edges": 1226,
+      "colors": 22,
+      "avg_degree": 3.0842767295597486,
+      "triangles": 413
+    },
+    {
+      "filename": "queries/S_28.json",
+      "nodes": 450,
+      "edges": 832,
+      "colors": 20,
+      "avg_degree": 3.6977777777777776,
+      "triangles": 803
+    },
+    {
+      "filename": "queries/S_29.json",
+      "nodes": 752,
+      "edges": 1563,
+      "colors": 21,
+      "avg_degree": 4.156914893617022,
+      "triangles": 2010
+    },
+    {
+      "filename": "queries/S_30.json",
+      "nodes": 767,
+      "edges": 1134,
+      "colors": 21,
+      "avg_degree": 2.956975228161669,
+      "triangles": 419
+    },
+    {
+      "filename": "queries/S_31.json",
+      "nodes": 655,
+      "edges": 957,
+      "colors": 20,
+      "avg_degree": 2.9221374045801527,
+      "triangles": 333
+    },
+    {
+      "filename": "queries/S_32.json",
+      "nodes": 845,
+      "edges": 1359,
+      "colors": 24,
+      "avg_degree": 3.216568047337278,
+      "triangles": 873
+    },
+    {
+      "filename": "queries/S_33.json",
+      "nodes": 788,
+      "edges": 1180,
+      "colors": 21,
+      "avg_degree": 2.99492385786802,
+      "triangles": 406
+    },
+    {
+      "filename": "queries/S_34.json",
+      "nodes": 435,
+      "edges": 644,
+      "colors": 21,
+      "avg_degree": 2.960919540229885,
+      "triangles": 343
+    },
+    {
+      "filename": "queries/S_35.json",
+      "nodes": 617,
+      "edges": 955,
+      "colors": 21,
+      "avg_degree": 3.0956239870340356,
+      "triangles": 316
+    },
+    {
+      "filename": "queries/S_36.json",
+      "nodes": 860,
+      "edges": 1246,
+      "colors": 23,
+      "avg_degree": 2.8976744186046512,
+      "triangles": 382
+    },
+    {
+      "filename": "queries/S_37.json",
+      "nodes": 824,
+      "edges": 1389,
+      "colors": 23,
+      "avg_degree": 3.371359223300971,
+      "triangles": 803
+    },
+    {
+      "filename": "queries/S_38.json",
+      "nodes": 629,
+      "edges": 926,
+      "colors": 22,
+      "avg_degree": 2.944356120826709,
+      "triangles": 364
+    },
+    {
+      "filename": "queries/S_39.json",
+      "nodes": 414,
+      "edges": 520,
+      "colors": 20,
+      "avg_degree": 2.5120772946859904,
+      "triangles": 111
+    },
+    {
+      "filename": "queries/S_40.json",
+      "nodes": 746,
+      "edges": 1189,
+      "colors": 22,
+      "avg_degree": 3.187667560321716,
+      "triangles": 740
+    },
+    {
+      "filename": "queries/S_41.json",
+      "nodes": 515,
+      "edges": 732,
+      "colors": 20,
+      "avg_degree": 2.8427184466019417,
+      "triangles": 360
+    },
+    {
+      "filename": "queries/S_42.json",
+      "nodes": 642,
+      "edges": 1031,
+      "colors": 19,
+      "avg_degree": 3.2118380062305296,
+      "triangles": 576
+    },
+    {
+      "filename": "queries/S_43.json",
+      "nodes": 661,
+      "edges": 977,
+      "colors": 22,
+      "avg_degree": 2.956127080181543,
+      "triangles": 375
+    },
+    {
+      "filename": "queries/S_44.json",
+      "nodes": 713,
+      "edges": 1848,
+      "colors": 20,
+      "avg_degree": 5.183730715287518,
+      "triangles": 3875
+    },
+    {
+      "filename": "queries/S_45.json",
+      "nodes": 521,
+      "edges": 696,
+      "colors": 19,
+      "avg_degree": 2.671785028790787,
+      "triangles": 215
+    },
+    {
+      "filename": "queries/S_46.json",
+      "nodes": 513,
+      "edges": 1017,
+      "colors": 20,
+      "avg_degree": 3.9649122807017543,
+      "triangles": 1498
+    },
+    {
+      "filename": "queries/S_47.json",
+      "nodes": 536,
+      "edges": 748,
+      "colors": 19,
+      "avg_degree": 2.791044776119403,
+      "triangles": 250
+    },
+    {
+      "filename": "queries/S_48.json",
+      "nodes": 518,
+      "edges": 825,
+      "colors": 22,
+      "avg_degree": 3.1853281853281854,
+      "triangles": 551
+    },
+    {
+      "filename": "queries/S_49.json",
+      "nodes": 730,
+      "edges": 1050,
+      "colors": 20,
+      "avg_degree": 2.8767123287671232,
+      "triangles": 358
+    },
+    {
+      "filename": "queries/S_50.json",
+      "nodes": 534,
+      "edges": 727,
+      "colors": 18,
+      "avg_degree": 2.7228464419475658,
+      "triangles": 266
+    },
+    {
+      "filename": "queries/S_51.json",
+      "nodes": 473,
+      "edges": 977,
+      "colors": 19,
+      "avg_degree": 4.13107822410148,
+      "triangles": 1773
+    },
+    {
+      "filename": "queries/S_52.json",
+      "nodes": 665,
+      "edges": 949,
+      "colors": 22,
+      "avg_degree": 2.8541353383458645,
+      "triangles": 397
+    },
+    {
+      "filename": "queries/S_53.json",
+      "nodes": 546,
+      "edges": 781,
+      "colors": 21,
+      "avg_degree": 2.860805860805861,
+      "triangles": 318
+    },
+    {
+      "filename": "queries/S_54.json",
+      "nodes": 511,
+      "edges": 650,
+      "colors": 21,
+      "avg_degree": 2.544031311154599,
+      "triangles": 138
+    },
+    {
+      "filename": "queries/S_55.json",
+      "nodes": 461,
+      "edges": 788,
+      "colors": 18,
+      "avg_degree": 3.418655097613883,
+      "triangles": 484
+    },
+    {
+      "filename": "queries/S_56.json",
+      "nodes": 562,
+      "edges": 896,
+      "colors": 23,
+      "avg_degree": 3.188612099644128,
+      "triangles": 513
+    },
+    {
+      "filename": "queries/S_57.json",
+      "nodes": 678,
+      "edges": 1071,
+      "colors": 19,
+      "avg_degree": 3.15929203539823,
+      "triangles": 521
+    },
+    {
+      "filename": "queries/S_58.json",
+      "nodes": 656,
+      "edges": 1097,
+      "colors": 20,
+      "avg_degree": 3.3445121951219514,
+      "triangles": 899
+    },
+    {
+      "filename": "queries/S_59.json",
+      "nodes": 493,
+      "edges": 988,
+      "colors": 20,
+      "avg_degree": 4.008113590263692,
+      "triangles": 1010
+    },
+    {
+      "filename": "queries/S_60.json",
+      "nodes": 698,
+      "edges": 1020,
+      "colors": 22,
+      "avg_degree": 2.9226361031518624,
+      "triangles": 463
+    },
+    {
+      "filename": "queries/S_61.json",
+      "nodes": 751,
+      "edges": 1227,
+      "colors": 22,
+      "avg_degree": 3.2676431424766976,
+      "triangles": 809
+    },
+    {
+      "filename": "queries/S_62.json",
+      "nodes": 468,
+      "edges": 808,
+      "colors": 19,
+      "avg_degree": 3.452991452991453,
+      "triangles": 814
+    },
+    {
+      "filename": "queries/S_63.json",
+      "nodes": 570,
+      "edges": 971,
+      "colors": 23,
+      "avg_degree": 3.407017543859649,
+      "triangles": 546
+    },
+    {
+      "filename": "queries/S_64.json",
+      "nodes": 662,
+      "edges": 1260,
+      "colors": 19,
+      "avg_degree": 3.806646525679758,
+      "triangles": 1212
+    },
+    {
+      "filename": "queries/S_65.json",
+      "nodes": 449,
+      "edges": 719,
+      "colors": 21,
+      "avg_degree": 3.202672605790646,
+      "triangles": 324
+    },
+    {
+      "filename": "queries/S_66.json",
+      "nodes": 638,
+      "edges": 932,
+      "colors": 21,
+      "avg_degree": 2.9216300940438873,
+      "triangles": 354
+    },
+    {
+      "filename": "queries/S_67.json",
+      "nodes": 529,
+      "edges": 880,
+      "colors": 21,
+      "avg_degree": 3.32703213610586,
+      "triangles": 471
+    },
+    {
+      "filename": "queries/S_68.json",
+      "nodes": 765,
+      "edges": 1521,
+      "colors": 22,
+      "avg_degree": 3.976470588235294,
+      "triangles": 1662
+    },
+    {
+      "filename": "queries/S_69.json",
+      "nodes": 715,
+      "edges": 1230,
+      "colors": 21,
+      "avg_degree": 3.4405594405594404,
+      "triangles": 963
+    },
+    {
+      "filename": "queries/S_70.json",
+      "nodes": 558,
+      "edges": 936,
+      "colors": 19,
+      "avg_degree": 3.3548387096774195,
+      "triangles": 854
+    },
+    {
+      "filename": "queries/S_71.json",
+      "nodes": 816,
+      "edges": 2658,
+      "colors": 21,
+      "avg_degree": 6.514705882352941,
+      "triangles": 14845
+    },
+    {
+      "filename": "queries/S_72.json",
+      "nodes": 622,
+      "edges": 891,
+      "colors": 21,
+      "avg_degree": 2.864951768488746,
+      "triangles": 346
+    },
+    {
+      "filename": "queries/S_73.json",
+      "nodes": 738,
+      "edges": 1102,
+      "colors": 21,
+      "avg_degree": 2.986449864498645,
+      "triangles": 662
+    },
+    {
+      "filename": "queries/S_74.json",
+      "nodes": 757,
+      "edges": 1834,
+      "colors": 19,
+      "avg_degree": 4.845442536327609,
+      "triangles": 1890
+    },
+    {
+      "filename": "queries/S_75.json",
+      "nodes": 528,
+      "edges": 1350,
+      "colors": 21,
+      "avg_degree": 5.113636363636363,
+      "triangles": 3164
+    },
+    {
+      "filename": "queries/S_76.json",
+      "nodes": 742,
+      "edges": 1229,
+      "colors": 21,
+      "avg_degree": 3.31266846361186,
+      "triangles": 769
+    },
+    {
+      "filename": "queries/S_77.json",
+      "nodes": 777,
+      "edges": 1250,
+      "colors": 22,
+      "avg_degree": 3.2175032175032174,
+      "triangles": 670
+    },
+    {
+      "filename": "queries/S_78.json",
+      "nodes": 755,
+      "edges": 1174,
+      "colors": 21,
+      "avg_degree": 3.109933774834437,
+      "triangles": 574
+    },
+    {
+      "filename": "queries/S_79.json",
+      "nodes": 566,
+      "edges": 861,
+      "colors": 21,
+      "avg_degree": 3.0424028268551235,
+      "triangles": 335
+    },
+    {
+      "filename": "queries/S_80.json",
+      "nodes": 683,
+      "edges": 1188,
+      "colors": 23,
+      "avg_degree": 3.4787701317715958,
+      "triangles": 761
+    },
+    {
+      "filename": "queries/S_81.json",
+      "nodes": 814,
+      "edges": 2094,
+      "colors": 20,
+      "avg_degree": 5.144963144963145,
+      "triangles": 5089
+    },
+    {
+      "filename": "queries/S_82.json",
+      "nodes": 756,
+      "edges": 1329,
+      "colors": 20,
+      "avg_degree": 3.515873015873016,
+      "triangles": 1456
+    },
+    {
+      "filename": "queries/S_83.json",
+      "nodes": 360,
+      "edges": 558,
+      "colors": 21,
+      "avg_degree": 3.1,
+      "triangles": 391
+    },
+    {
+      "filename": "queries/S_84.json",
+      "nodes": 553,
+      "edges": 875,
+      "colors": 21,
+      "avg_degree": 3.1645569620253164,
+      "triangles": 463
+    },
+    {
+      "filename": "queries/S_85.json",
+      "nodes": 549,
+      "edges": 1003,
+      "colors": 20,
+      "avg_degree": 3.6539162112932604,
+      "triangles": 1131
+    },
+    {
+      "filename": "queries/S_86.json",
+      "nodes": 372,
+      "edges": 1399,
+      "colors": 18,
+      "avg_degree": 7.521505376344086,
+      "triangles": 4420
+    },
+    {
+      "filename": "queries/S_87.json",
+      "nodes": 810,
+      "edges": 1579,
+      "colors": 21,
+      "avg_degree": 3.8987654320987652,
+      "triangles": 2090
+    },
+    {
+      "filename": "queries/S_88.json",
+      "nodes": 745,
+      "edges": 1643,
+      "colors": 19,
+      "avg_degree": 4.410738255033557,
+      "triangles": 2447
+    },
+    {
+      "filename": "queries/S_89.json",
+      "nodes": 632,
+      "edges": 1011,
+      "colors": 22,
+      "avg_degree": 3.199367088607595,
+      "triangles": 651
+    },
+    {
+      "filename": "queries/S_90.json",
+      "nodes": 584,
+      "edges": 2368,
+      "colors": 20,
+      "avg_degree": 8.10958904109589,
+      "triangles": 13735
+    },
+    {
+      "filename": "queries/S_91.json",
+      "nodes": 720,
+      "edges": 2751,
+      "colors": 19,
+      "avg_degree": 7.641666666666667,
+      "triangles": 9293
+    },
+    {
+      "filename": "queries/S_92.json",
+      "nodes": 512,
+      "edges": 853,
+      "colors": 20,
+      "avg_degree": 3.33203125,
+      "triangles": 520
+    },
+    {
+      "filename": "queries/S_93.json",
+      "nodes": 686,
+      "edges": 1469,
+      "colors": 19,
+      "avg_degree": 4.282798833819242,
+      "triangles": 1106
+    },
+    {
+      "filename": "queries/S_94.json",
+      "nodes": 474,
+      "edges": 871,
+      "colors": 17,
+      "avg_degree": 3.6751054852320677,
+      "triangles": 1092
+    },
+    {
+      "filename": "queries/S_95.json",
+      "nodes": 708,
+      "edges": 1258,
+      "colors": 21,
+      "avg_degree": 3.553672316384181,
+      "triangles": 903
+    },
+    {
+      "filename": "queries/S_96.json",
+      "nodes": 619,
+      "edges": 1272,
+      "colors": 22,
+      "avg_degree": 4.109854604200323,
+      "triangles": 1239
+    },
+    {
+      "filename": "queries/S_97.json",
+      "nodes": 665,
+      "edges": 1215,
+      "colors": 21,
+      "avg_degree": 3.654135338345865,
+      "triangles": 1061
+    },
+    {
+      "filename": "queries/S_98.json",
+      "nodes": 352,
+      "edges": 1070,
+      "colors": 17,
+      "avg_degree": 6.079545454545454,
+      "triangles": 2263
+    },
+    {
+      "filename": "queries/S_99.json",
+      "nodes": 435,
+      "edges": 936,
+      "colors": 20,
+      "avg_degree": 4.303448275862069,
+      "triangles": 1142
+    },
+    {
+      "filename": "queries/S_100.json",
+      "nodes": 765,
+      "edges": 1234,
+      "colors": 20,
+      "avg_degree": 3.2261437908496733,
+      "triangles": 773
+    }
+  ],
+  "disjoint_checks": {
+    "G_vs_queries_disjoint": true,
+    "queries_pairwise_disjoint": true
+  },
+  "assignment": {
+    "total_original_vertices": 76875,
+    "assigned_vertices": 70819,
+    "unassigned_vertices": 6056,
+    "unassigned_file": "unassigned_original_vertex_ids.json",
+    "background_max_vertices": 7129,
+    "query_expansion": "one reachable unused vertex per turn, prioritizing the S graph with fewest added vertices",
+    "note": "Final graph sizes may exceed the requested sample size range."
+  }
+}
