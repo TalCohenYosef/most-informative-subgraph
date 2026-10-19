@@ -21,7 +21,7 @@ import numpy as np
 from matplotlib.colors import Normalize, SymLogNorm
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "src" / "analysis"))
+sys.path.insert(0, str(ROOT / "figures" / "analysis"))
 
 import result_readers
 from figure_03_vista_panel import CONFIGURATIONS, LAPAZ, build_matrices, read_summaries

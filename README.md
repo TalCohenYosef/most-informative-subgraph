@@ -3,10 +3,9 @@
 Reproducibility materials for the paper **“The Most Informative Subgraph of a
 Vertex-Colored Graph: Definition, Bounds, and Estimation.”**
 
-This repository provides benchmark-generation and extraction code, compact
-saved experimental results, and scripts for regenerating Figures 2–6. The
-figure workflow uses the saved results; independently rerunning the underlying
-experiments is a separate workflow described in
+This repository provides dataset-generation and extraction code, compact saved
+experimental results, analysis utilities, and scripts for regenerating Figures
+2–6. The saved-result workflow is described in
 [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
 
 ## Installation
@@ -18,10 +17,11 @@ conda env create -f environment.yml
 conda activate most-informative-subgraph
 ```
 
-The experiments also use the public
+The original experiments used the public
 [Subgraph Filter Suite](https://github.com/subgraph-filter-suit-project/subgraph_filter_suit)
-at commit `b4a90b08a2d418b137f06edd09044da400b567d8`. Install it separately; its
-C++ source is not vendored here:
+at commit `b4a90b08a2d418b137f06edd09044da400b567d8`. It is not required for
+dataset generation or figure reproduction. Its C++ source is not vendored
+here; install it separately only when inspecting the original implementation:
 
 ```bash
 git clone https://github.com/subgraph-filter-suit-project/subgraph_filter_suit.git
@@ -158,11 +158,12 @@ Each command writes `figures/figure_XX/figure_XX.png`. Use
 image. Figure 1 is a manually created conceptual schematic and has no
 generation script.
 
-## Experiment code
+## Saved-result analysis
 
-Experiment scripts are stored in `src/experiments/`; compact outputs are in
-`data/results/`. Commands, parameters, and technical limitations are described
-in [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md).
+Reusable analysis utilities are stored in `figures/analysis/`; compact inputs
+are in `data/results/`. Their roles and the saved-result workflow are described
+in [docs/EXPERIMENTS.md](docs/EXPERIMENTS.md) and
+[docs/FIGURE_MANIFEST.md](docs/FIGURE_MANIFEST.md).
 
 ## Reproducibility scope
 

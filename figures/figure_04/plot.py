@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "src" / "analysis"))
+sys.path.insert(0, str(ROOT / "figures" / "analysis"))
 import result_readers as comparison
 
 

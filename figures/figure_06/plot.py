@@ -18,7 +18,7 @@ from matplotlib.patches import Patch, Rectangle
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(REPOSITORY_ROOT / "src" / "analysis"))
+sys.path.insert(0, str(REPOSITORY_ROOT / "figures" / "analysis"))
 
 from figure_06_matrix import COMBINATIONS, build_matrix, find_run_directories
 from figure_06_membership import Distribution, discover_distributions

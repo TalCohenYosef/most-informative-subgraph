@@ -17,7 +17,7 @@ Manual conceptual schematic. No computational script is required.
 ## Figure 3 — Synthetic, Graphlets and real-world negation
 
 - Script: `figures/figure_03/plot.py`
-- Supporting VISTA panel: `src/analysis/figure_03_vista_panel.py`
+- Supporting VISTA panel: `figures/analysis/figure_03_vista_panel.py`
 - VISTA input: `data/results/vista/synthetic_summaries/*.csv` (144 files)
 - Graphlets input: `data/results/graphlets/filter_results/**/*.csv` (144 files)
 - Real-world inputs: `data/results/realworld/*/recovery_results/first_not_found.csv`
@@ -33,7 +33,7 @@ Manual conceptual schematic. No computational script is required.
 ## Figure 4 — VISTA versus Graphlets Enumeration
 
 - Script: `figures/figure_04/plot.py`
-- Shared reader: `src/analysis/result_readers.py`
+- Shared reader: `figures/analysis/result_readers.py`
 - Inputs: 144 Graphlets filtering CSVs and 144 VISTA `first_not_found.csv` files
 - Output: `figures/figure_04/figure_04.png`
 - Clean-environment validation: regenerated PNG has identical dimensions and
@@ -55,8 +55,8 @@ Manual conceptual schematic. No computational script is required.
 ## Figure 6 — VISTA+
 
 - Script: `figures/figure_06/plot.py`
-- Supporting modules: `src/analysis/figure_06_matrix.py`,
-  `src/analysis/figure_06_membership.py`
+- Supporting modules: `figures/analysis/figure_06_matrix.py`,
+  `figures/analysis/figure_06_membership.py`
 - Inputs: `data/results/vista_plus/input_color_*`, specifically each run's
   `run_config.json`, `pattern_to_S_indices.json`, `timings.json`,
   `G_summary.txt`, and twelve `G_*/summary.json` files
