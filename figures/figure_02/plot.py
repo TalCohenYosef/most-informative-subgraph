@@ -286,12 +286,17 @@ def add_case_panel(fig: plt.Figure, cell, case_data) -> None:
     )
     k_star = {"color": 1, "pair": 2, "triangle": 3}[case]
     outer.text(
-        0.5, 0.875, rf"$k^* = {k_star}$", ha="center", fontsize=16, weight="bold"
+        0.5, 0.875, rf"$k^* = {k_star}$", ha="center", fontsize=19, weight="bold"
     )
     outer.text(
-        0.25, 0.815, background_text, ha="center", fontsize=14, weight="bold"
+        0.25,
+        0.815,
+        background_text,
+        ha="center",
+        fontsize=15,
+        weight="bold",
     )
-    outer.text(0.75, 0.815, query_text, ha="center", fontsize=14, weight="bold")
+    outer.text(0.75, 0.815, query_text, ha="center", fontsize=15, weight="bold")
     left_ax = outer.inset_axes([0.055, 0.075, 0.39, 0.62])
     right_ax = outer.inset_axes([0.555, 0.075, 0.39, 0.62])
     draw_graph(left_ax, *background, case=case, seed=seed)
@@ -345,13 +350,13 @@ def plot_recovery(ax: plt.Axes, show_title: bool = False) -> None:
     for k, color in ((1, "#2f6dcc"), (2, "#f07f24"), (3, "#2ca02c")):
         ax.axvline(k, color=color, linestyle=":", linewidth=1.4, alpha=0.55)
         ax.text(
-            k,
+            k + 0.12,
             1.015,
             rf"$k^*={k}$",
             color=color,
-            ha="center",
+            ha="left",
             va="bottom",
-            fontsize=14,
+            fontsize=17,
             weight="bold",
             clip_on=True,
         )
@@ -364,7 +369,7 @@ def plot_recovery(ax: plt.Axes, show_title: bool = False) -> None:
     ax.tick_params(labelsize=14)
     for label in [*ax.get_xticklabels(), *ax.get_yticklabels()]:
         label.set_fontweight("bold")
-    legend = ax.legend(frameon=False, fontsize=12, loc="lower right")
+    legend = ax.legend(frameon=False, fontsize=16, loc="lower right")
     for label in legend.get_texts():
         label.set_fontweight("bold")
 
@@ -373,7 +378,7 @@ def add_recovery_panel(fig: plt.Figure, cell) -> None:
     x, y, width, height = cell
     fig.text(
         x + width / 2,
-        y + height * 1.015,
+        y + height * 1.06,
         "Planted-structure",
         ha="center",
         va="top",
