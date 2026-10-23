@@ -161,22 +161,28 @@ def main(output_path: Path) -> None:
 
     # Ticks
     ax.set_xticks(k_values)
-    ax.set_xticklabels(
-        [f"K={k}" for k in k_values],
-        fontsize=16,
-        fontweight="bold",
-    )
-
-    # Color each K label like the points
-    for tick, color in zip(ax.get_xticklabels(), COLORS):
-        tick.set_color(color)
+    ax.tick_params(axis="x", labelbottom=False)
+    for k, color in zip(k_values, COLORS):
+        ax.text(
+            k,
+            0.2,
+            f"k={k}",
+            color=color,
+            fontsize=16,
+            fontweight="bold",
+            ha="center",
+            va="center",
+            zorder=4,
+            bbox={"facecolor": "white", "edgecolor": "none", "pad": 1.5},
+        )
 
     # Axis labels only (no title)
     ax.set_xlabel(
-        "Pattern size K",
+        "Pattern size k",
         fontsize=20,
         fontweight="bold",
         labelpad=14,
+        loc="center",
     )
     ax.set_ylabel(
         "S queries remaining: VISTA - Graphlets Enumeration",
@@ -196,15 +202,15 @@ def main(output_path: Path) -> None:
     ax.set_axisbelow(True)
 
     # Spines
-    ax.spines["top"].set_visible(False)
-    ax.spines["right"].set_visible(False)
-    ax.spines["left"].set_linewidth(1.2)
-    ax.spines["bottom"].set_linewidth(1.2)
+    for spine in ax.spines.values():
+        spine.set_visible(True)
+        spine.set_linewidth(1.2)
+        spine.set_color("black")
 
     # --------------------------------------------------------
     # Inset stacked bar chart
     # --------------------------------------------------------
-    ax_inset = fig.add_axes([0.13, 0.18, 0.36, 0.29], zorder=10)
+    ax_inset = fig.add_axes([0.16, 0.18, 0.36, 0.29], zorder=10)
     ax_inset.set_facecolor("white")
 
     inset_k = np.arange(1, max_k + 1)
@@ -251,26 +257,27 @@ def main(output_path: Path) -> None:
 
     ax_inset.set_xticks(inset_k)
     ax_inset.set_xticklabels(
-        [f"K={k}" for k in inset_k], fontsize=8, fontweight="bold"
+        [f"k={k}" for k in inset_k], fontsize=11, fontweight="bold"
     )
 
     ax_inset.set_yticks(np.arange(0, 101, 20))
     ax_inset.set_yticklabels(
-        [f"{y}%" for y in range(0, 101, 20)], fontsize=8, fontweight="bold"
+        [f"{y}%" for y in range(0, 101, 20)], fontsize=11, fontweight="bold"
     )
 
     # Inset axis labels only
     ax_inset.set_xlabel(
-        "Pattern size K",
-        fontsize=9,
+        "Pattern size k",
+        fontsize=13,
         fontweight="bold",
-        labelpad=4,
+        labelpad=6,
+        loc="center",
     )
     ax_inset.set_ylabel(
         "Configurations (%)",
-        fontsize=9,
+        fontsize=13,
         fontweight="bold",
-        labelpad=4,
+        labelpad=6,
     )
 
     ax_inset.grid(axis="y", color="#d4d9df", linewidth=0.7, alpha=0.7)
@@ -279,8 +286,8 @@ def main(output_path: Path) -> None:
     # Frame for inset
     for spine in ax_inset.spines.values():
         spine.set_visible(True)
-        spine.set_linewidth(0.9)
-        spine.set_color("#9ca3af")
+        spine.set_linewidth(1.2)
+        spine.set_color("black")
 
     # Legend under inset - moved a bit up
     ax_inset.legend(
@@ -288,9 +295,9 @@ def main(output_path: Path) -> None:
         bbox_to_anchor=(0.5, -0.14),   # <-- moved upward
         ncol=3,
         frameon=False,
-        prop={"size": 7.5, "weight": "bold"},
-        columnspacing=1.1,
-        handlelength=1.7,
+        prop={"size": 10, "weight": "bold"},
+        columnspacing=1.2,
+        handlelength=1.8,
     )
 
     # --------------------------------------------------------
@@ -298,9 +305,12 @@ def main(output_path: Path) -> None:
     # --------------------------------------------------------
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
+    pdf_path = output_path.with_suffix(".pdf")
+    fig.savefig(pdf_path, bbox_inches="tight", facecolor="white")
     plt.close(fig)
 
     print(f"Saved: {output_path}")
+    print(f"Saved: {pdf_path}")
 
 
 def parse_args() -> argparse.Namespace:

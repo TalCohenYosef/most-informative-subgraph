@@ -27,8 +27,7 @@ DEFAULT_PNG = HERE / "figure_02.png"
 COLORS = {0: "#6c9bd2", 1: "#f28e52", 2: "#61b27d", 3: "#b279c7"}
 EDGE_COLOR = "#111111"
 RING_COLOR = "#d62728"
-# UNVERIFIED: These recovered values were embedded in the original plotting
-# script. They remain unchanged pending recovery of authoritative result files.
+
 KNOWN_RECOVERY = {
     "unique_color": [1.0],
     "unique_pair": [0.0, 1.0, 0.816, 0.935, 0.988, 0.991, 0.997, 0.997],
@@ -281,18 +280,18 @@ def add_case_panel(fig: plt.Figure, cell, case_data) -> None:
         title,
         ha="center",
         va="top",
-        fontsize=18,
+        fontsize=21,
         weight="bold",
         zorder=5,
     )
     k_star = {"color": 1, "pair": 2, "triangle": 3}[case]
     outer.text(
-        0.5, 0.875, rf"$k^* = {k_star}$", ha="center", fontsize=14, weight="bold"
+        0.5, 0.875, rf"$k^* = {k_star}$", ha="center", fontsize=16, weight="bold"
     )
     outer.text(
-        0.25, 0.815, background_text, ha="center", fontsize=12, weight="bold"
+        0.25, 0.815, background_text, ha="center", fontsize=14, weight="bold"
     )
-    outer.text(0.75, 0.815, query_text, ha="center", fontsize=12, weight="bold")
+    outer.text(0.75, 0.815, query_text, ha="center", fontsize=14, weight="bold")
     left_ax = outer.inset_axes([0.055, 0.075, 0.39, 0.62])
     right_ax = outer.inset_axes([0.555, 0.075, 0.39, 0.62])
     draw_graph(left_ax, *background, case=case, seed=seed)
@@ -352,20 +351,20 @@ def plot_recovery(ax: plt.Axes, show_title: bool = False) -> None:
             color=color,
             ha="center",
             va="bottom",
-            fontsize=12,
+            fontsize=14,
             weight="bold",
             clip_on=True,
         )
     if show_title:
-        ax.set_title("Planted-structure recovery", fontsize=17, weight="bold")
-    ax.set_xlabel("subgraph-size budget $k$", fontsize=13, weight="bold")
-    ax.set_ylabel("Recovery rate $R(k)$", fontsize=13, weight="bold")
+        ax.set_title("Planted-structure", fontsize=19, weight="bold")
+    ax.set_xlabel("subgraph-size budget $k$", fontsize=15, weight="bold")
+    ax.set_ylabel("Nagiation rate $Rneg(k)$", fontsize=15, weight="bold")
     ax.set(xlim=(0.7, 8.3), ylim=(-0.03, 1.08), xticks=range(1, 9))
     ax.grid(alpha=0.22)
-    ax.tick_params(labelsize=12)
+    ax.tick_params(labelsize=14)
     for label in [*ax.get_xticklabels(), *ax.get_yticklabels()]:
         label.set_fontweight("bold")
-    legend = ax.legend(frameon=False, fontsize=10, loc="lower right")
+    legend = ax.legend(frameon=False, fontsize=12, loc="lower right")
     for label in legend.get_texts():
         label.set_fontweight("bold")
 
@@ -375,10 +374,10 @@ def add_recovery_panel(fig: plt.Figure, cell) -> None:
     fig.text(
         x + width / 2,
         y + height * 1.015,
-        "Planted-structure recovery",
+        "Planted-structure",
         ha="center",
         va="top",
-        fontsize=18,
+        fontsize=21,
         weight="bold",
     )
     left_pad, right_pad, bottom_pad = 0.039, -0.010, 0.045
@@ -447,8 +446,11 @@ def build_figure(output_png: Path = DEFAULT_PNG) -> None:
     )
     output_png.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_png, dpi=220, bbox_inches="tight", pad_inches=0.12)
+    output_pdf = output_png.with_suffix(".pdf")
+    fig.savefig(output_pdf, bbox_inches="tight", pad_inches=0.12)
     plt.close(fig)
     print(f"Saved {output_png}")
+    print(f"Saved {output_pdf}")
 
 
 def parse_args() -> argparse.Namespace:

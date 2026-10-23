@@ -33,6 +33,12 @@ DEFAULT_OUTPUT = Path(__file__).resolve().parent / "figure_03.png"
 
 DEGREES = (3, 5, 8, 15)
 SHORT = {"average": "A", "rare": "R", "uniform": "U"}
+AXIS_TICK_SIZE = 12
+AXIS_LABEL_SIZE = 18
+PANEL_TITLE_SIZE = 18
+DATA_LABEL_SIZE = 14
+LOWER_AXIS_TICK_SIZE = 16
+LOWER_AXIS_LABEL_SIZE = AXIS_LABEL_SIZE
 
 
 def graphlets_degree_maxima() -> np.ndarray:
@@ -85,7 +91,7 @@ def main(output_path: Path) -> None:
     plt.rcParams.update(
         {
             "font.family": "DejaVu Sans",
-            "font.size": 12,
+            "font.size": 14,
             "font.weight": "bold",
             "axes.labelweight": "bold",
             "axes.titleweight": "bold",
@@ -94,32 +100,35 @@ def main(output_path: Path) -> None:
     # Chosen to match the saved manuscript composite's 6292 x 3685 canvas
     # after tight bounding-box cropping at 300 dpi.
     fig = plt.figure(figsize=(22.04, 12.88), facecolor="white")
-    outer = fig.add_gridspec(2, 1, height_ratios=(2.05, 1.0), hspace=0.38)
+    outer = fig.add_gridspec(2, 1, height_ratios=(2.05, 1.0), hspace=0.32)
     top = outer[0].subgridspec(
         2,
-        6,
-        width_ratios=(1, 1, 1, 1, 1, 0.12),
-        wspace=0.10,
+        7,
+        width_ratios=(1, 1, 1, 1, 1, 0.12, 0.48),
+        wspace=0.07,
         hspace=0.30,
     )
     labels = [f"{SHORT[family]}\n{degree}" for family, degree in CONFIGURATIONS]
     heatmap_image = None
+    lower_heatmap_axes = []
     for index, (k, matrix) in enumerate(matrices.items()):
         axis = fig.add_subplot(top[index // 5, index % 5])
+        if index >= 5:
+            lower_heatmap_axes.append(axis)
         heatmap_image = axis.imshow(
             matrix,
             cmap=LAPAZ,
             norm=SymLogNorm(linthresh=1, vmin=0, vmax=1000, base=10),
             aspect="auto",
         )
-        axis.set_title(f"k = {k}", fontsize=16, fontweight="bold", pad=10)
+        axis.set_title(f"k = {k}", fontsize=PANEL_TITLE_SIZE, fontweight="bold", pad=10)
         axis.set_xticks(range(12), labels=labels)
         axis.set_yticks(
             range(12),
             labels=[f"{SHORT[family]} {degree}" for family, degree in CONFIGURATIONS],
         )
-        axis.tick_params(axis="x", labelsize=8, length=0, pad=5)
-        axis.tick_params(axis="y", labelsize=9, length=0, pad=5)
+        axis.tick_params(axis="x", labelsize=AXIS_TICK_SIZE, length=0, pad=5)
+        axis.tick_params(axis="y", labelsize=AXIS_TICK_SIZE, length=0, pad=5)
         if index % 5 != 0:
             axis.tick_params(labelleft=False)
         for label in [*axis.get_xticklabels(), *axis.get_yticklabels()]:
@@ -134,20 +143,22 @@ def main(output_path: Path) -> None:
         for spine in axis.spines.values():
             spine.set_color("#475569")
             spine.set_linewidth(0.7)
+    for axis in lower_heatmap_axes:
+        axis.set_position(axis.get_position().translated(0, -0.01))
     color_axis = fig.add_subplot(top[:, 5])
     colorbar = fig.colorbar(
         heatmap_image, cax=color_axis, ticks=(0, 1, 10, 100, 1000)
     )
     colorbar.set_label(
-        "S queries still alive", fontsize=17, fontweight="bold", labelpad=10
+        "Non-negated queries", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=10
     )
-    colorbar.ax.tick_params(labelsize=10)
+    colorbar.ax.tick_params(labelsize=AXIS_TICK_SIZE)
     fig.text(
         0.5,
-        0.405,
+        0.37,
         "Reference graph configuration, G",
         ha="center",
-        fontsize=17,
+        fontsize=AXIS_LABEL_SIZE,
         fontweight="bold",
     )
     fig.text(
@@ -156,26 +167,27 @@ def main(output_path: Path) -> None:
         "Query configuration, S",
         rotation=90,
         va="center",
-        fontsize=17,
+        fontsize=AXIS_LABEL_SIZE,
         fontweight="bold",
     )
     fig.text(
-        0.885,
-        0.955,
+        0.84,
+        0.92,
         "A = Average\nR = Rare\nU = Uniform",
-        ha="left",
+        ha="center",
         va="top",
-        fontsize=11,
+        fontsize=16,
         fontweight="bold",
+        multialignment="center",
         linespacing=1.25,
         bbox={
-            "boxstyle": "round,pad=0.45",
+            "boxstyle": "round,pad=0.3",
             "facecolor": "#F7FAFC",
             "edgecolor": "#8292A3",
         },
     )
 
-    bottom = outer[1].subgridspec(1, 2, width_ratios=(1.0, 1.25), wspace=0.28)
+    bottom = outer[1].subgridspec(1, 2, width_ratios=(1.0, 1.25), wspace=0.22)
     graphlet_axis = fig.add_subplot(bottom[0, 0])
     graphlet_image = graphlet_axis.imshow(
         graphlet_matrix,
@@ -189,9 +201,17 @@ def main(output_path: Path) -> None:
     graphlet_axis.set_yticks(
         range(4), labels=[rf"$d_S = {degree}$" for degree in DEGREES]
     )
-    graphlet_axis.tick_params(axis="both", labelsize=11, length=0)
-    graphlet_axis.set_xlabel("Reference graph G", fontsize=16, fontweight="bold")
-    graphlet_axis.set_ylabel("Query graph library S", fontsize=16, fontweight="bold")
+    graphlet_axis.tick_params(axis="both", labelsize=LOWER_AXIS_TICK_SIZE, length=0)
+    graphlet_axis.set_xlabel(
+        "Reference graph G", fontsize=LOWER_AXIS_LABEL_SIZE, fontweight="bold"
+    )
+    graphlet_axis.set_ylabel(
+        "Query graph library S",
+        fontsize=LOWER_AXIS_LABEL_SIZE,
+        fontweight="bold",
+        labelpad=0,
+    )
+    graphlet_axis.yaxis.label.set_y(0.5)
     for row in range(4):
         for column in range(4):
             value = graphlet_matrix[row, column]
@@ -202,16 +222,17 @@ def main(output_path: Path) -> None:
                     f"{value:.1f}%",
                     ha="center",
                     va="center",
-                    fontsize=13,
+                    fontsize=DATA_LABEL_SIZE,
                     fontweight="bold",
                     color="white" if value > 10 else "black",
                 )
     graphlet_colorbar = fig.colorbar(
         graphlet_image, ax=graphlet_axis, orientation="horizontal", pad=0.20
     )
-    graphlet_colorbar.ax.tick_params(labelsize=10)
+    graphlet_colorbar.ax.tick_params(labelsize=LOWER_AXIS_TICK_SIZE)
 
     real_axis = fig.add_subplot(bottom[0, 1])
+    real_axis.set_facecolor("white")
     colors = {"BookChild": "#D69A56", "SportsFit": "#78A5A3", "OGBN-Arxiv": "#4B8FA8"}
     for label, values in curves.items():
         real_axis.plot(
@@ -223,21 +244,35 @@ def main(output_path: Path) -> None:
             label=label,
             color=colors[label],
         )
-    real_axis.set_xlabel("K", fontsize=17, fontweight="bold")
-    real_axis.set_ylabel("S queries remaining", fontsize=16, fontweight="bold")
+    real_axis.set_xlabel("k", fontsize=LOWER_AXIS_LABEL_SIZE, fontweight="bold")
+    real_axis.set_ylabel(
+        "S queries remaining", fontsize=LOWER_AXIS_LABEL_SIZE, fontweight="bold"
+    )
+    real_axis.yaxis.label.set_y(0.5)
     real_axis.set_xticks(range(11))
-    real_axis.tick_params(axis="both", labelsize=10)
+    real_axis.tick_params(axis="both", labelsize=LOWER_AXIS_TICK_SIZE)
     real_axis.set_ylim(0, 102)
     real_axis.grid(color="#E5E1D8", linewidth=0.7)
-    real_axis.legend(frameon=False, fontsize=10, loc="upper right")
+    real_axis.legend(frameon=False, fontsize=16, loc="upper right")
 
-    fig.subplots_adjust(left=0.065, right=0.94, top=0.95, bottom=0.075)
-    color_axis.set_position((0.915, 0.46, 0.018, 0.34))
+    fig.subplots_adjust(left=0.065, right=0.89, top=0.95, bottom=0.075)
+    color_axis.set_position((0.80, 0.46, 0.018, 0.34))
+    graphlet_axis.set_position(graphlet_axis.get_position().translated(0.02, 0))
+    graphlet_colorbar.ax.set_position(
+        graphlet_colorbar.ax.get_position().translated(0.02, 0)
+    )
+    shared_y = real_axis.get_position().y0 + real_axis.get_position().height / 2
+    for axis, label_x in ((graphlet_axis, -0.14), (real_axis, -0.07)):
+        axis_position = axis.get_position()
+        label_y = (shared_y - axis_position.y0) / axis_position.height
+        axis.yaxis.set_label_coords(label_x, label_y)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
     print(f"Saved: {output_path}")
+    print(f"Saved: {output_path.with_suffix('.pdf')}")
 
 
 def parse_args() -> argparse.Namespace:

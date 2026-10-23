@@ -58,6 +58,11 @@ CASE_ORDER = [
     "uniform_deg_15",
 ]
 
+AXIS_LABEL_SIZE = 17
+AXIS_TICK_SIZE = 14
+LEGEND_SIZE = 14
+HEATMAP_HEIGHT_SCALE = 0.9
+
 
 def normalize_pattern_case_name(path: Path) -> str:
     """Return the query family containing this S-family/G-family run."""
@@ -202,18 +207,18 @@ def main(output_path: Path) -> None:
     ax.set_xticks(x_values)
     ax.set_xticklabels(
         [label.replace("_deg_", "\n").title() for label in CASE_ORDER],
-        rotation=0, fontsize=13, fontweight="bold",
+        rotation=0, fontsize=AXIS_TICK_SIZE, fontweight="bold",
     )
     ax.set_xlabel(
-        "Query family", fontsize=14, fontweight="bold", labelpad=10,
+        "Query configuration", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=10,
     )
     ax.set_ylabel(
         r"Mean time for one $S_i$–$G$ pair (seconds)",
-        fontsize=14, fontweight="bold", labelpad=10,
+        fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=10,
     )
     ax.set_yscale("log")
     ax.set_ylim(1e-3, 3.0)
-    ax.tick_params(axis="y", labelsize=12)
+    ax.tick_params(axis="y", labelsize=AXIS_TICK_SIZE)
     for tick in ax.get_yticklabels():
         tick.set_fontweight("bold")
     ax.grid(axis="y", color="#D7DCE2", linewidth=0.8, alpha=0.75)
@@ -222,7 +227,7 @@ def main(output_path: Path) -> None:
     ax.spines["right"].set_visible(False)
     ax.legend(
         ncol=4, frameon=False, loc="lower center",
-        bbox_to_anchor=(0.5, 1.08), prop={"size": 11, "weight": "bold"},
+        bbox_to_anchor=(0.5, 1.08), prop={"size": LEGEND_SIZE, "weight": "bold"},
         columnspacing=1.5,
     )
 
@@ -247,19 +252,27 @@ def main(output_path: Path) -> None:
         aspect="auto",
         interpolation="nearest",
     )
-    heat_ax.set_xticks(range(10), labels=[f"{value:.3f}" for value in score_centers])
+    heat_ax.set_xticks(range(10), labels=[f"{value:.2f}" for value in score_centers])
     heat_ax.set_yticks(range(10), labels=[f"{value:.2f}" for value in fraction_centers])
-    heat_ax.set_xlabel("Negation score", fontsize=14, fontweight="bold", labelpad=10)
-    heat_ax.set_ylabel("Fraction negated", fontsize=14, fontweight="bold", labelpad=10)
-    heat_ax.tick_params(axis="both", labelsize=11, direction="in", top=True, right=True)
+    heat_ax.tick_params(axis="x", labelrotation=45)
+    plt.setp(heat_ax.get_xticklabels(), ha="right", rotation_mode="anchor")
+    heat_ax.set_xlabel(
+        "Negation score", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=2
+    )
+    heat_ax.set_ylabel(
+        "Fraction negated", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=10
+    )
+    heat_ax.tick_params(
+        axis="both", labelsize=AXIS_TICK_SIZE, direction="in", top=True, right=True
+    )
     for tick in (*heat_ax.get_xticklabels(), *heat_ax.get_yticklabels()):
         tick.set_fontweight("bold")
 
     colorbar = fig.colorbar(heat_image, ax=heat_ax, pad=0.018, fraction=0.028)
     colorbar.set_label(
-        r"Configuration–$K$ pairs", fontsize=13, fontweight="bold", labelpad=10
+        r"Configuration–$K$ pairs", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=10
     )
-    colorbar.ax.tick_params(labelsize=11)
+    colorbar.ax.tick_params(labelsize=AXIS_TICK_SIZE)
     for tick in colorbar.ax.get_yticklabels():
         tick.set_fontweight("bold")
 
@@ -286,24 +299,49 @@ def main(output_path: Path) -> None:
     )
     extreme_ax.set_xlim(score_edges[0], score_edges[-1])
     extreme_ax.set_xticks(np.arange(-5, 46, 5))
-    extreme_ax.set_xlabel("Negation score", fontsize=14, fontweight="bold", labelpad=8)
-    extreme_ax.tick_params(axis="both", labelsize=10)
+    extreme_ax.set_xlabel(
+        "Negation score", fontsize=AXIS_LABEL_SIZE, fontweight="bold", labelpad=8
+    )
+    extreme_ax.tick_params(axis="both", labelsize=AXIS_TICK_SIZE)
     for tick in (*extreme_ax.get_xticklabels(), *extreme_ax.get_yticklabels()):
         tick.set_fontweight("bold")
     extreme_ax.grid(axis="y", color="#D7DCE2", linewidth=0.8, alpha=0.75)
     extreme_ax.set_axisbelow(True)
     extreme_ax.spines["top"].set_visible(False)
     extreme_ax.spines["right"].set_visible(False)
-    extreme_ax.legend(frameon=False, prop={"size": 10, "weight": "bold"})
+    extreme_ax.legend(
+        frameon=False, prop={"size": LEGEND_SIZE, "weight": "bold"}
+    )
 
     fig.subplots_adjust(
-        left=0.07, right=0.97, top=0.92, bottom=0.09, hspace=0.42, wspace=0.18
+        left=0.07, right=0.97, top=0.92, bottom=0.09, hspace=0.37, wspace=0.18
+    )
+    heatmap_position = heat_ax.get_position()
+    reduced_heatmap_height = heatmap_position.height * HEATMAP_HEIGHT_SCALE
+    heat_ax.set_position(
+        [
+            heatmap_position.x0,
+            heatmap_position.y0 + (heatmap_position.height - reduced_heatmap_height) / 2,
+            heatmap_position.width,
+            reduced_heatmap_height,
+        ]
+    )
+    colorbar_position = colorbar.ax.get_position()
+    colorbar.ax.set_position(
+        [
+            colorbar_position.x0,
+            colorbar_position.y0 + (colorbar_position.height - reduced_heatmap_height) / 2,
+            colorbar_position.width,
+            reduced_heatmap_height,
+        ]
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
+    fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight", facecolor="white")
     plt.close(fig)
     print(f"Saved: {output_path}")
+    print(f"Saved: {output_path.with_suffix('.pdf')}")
     print(f"Heatmap source: {THEORY_RESULTS}")
     print(f"Heatmap observations: {int(heatmap.sum())}")
 
