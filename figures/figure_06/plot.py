@@ -31,11 +31,11 @@ MODE_COLORS = {
     "uniform": "#78A5A3",
 }
 
-AXIS_LABEL_SIZE = 8
-TICK_LABEL_SIZE = 6
+AXIS_LABEL_SIZE = 12
+TICK_LABEL_SIZE = 10
 PANEL_TITLE_SIZE = 8
-LEGEND_TEXT_SIZE = 6
-LEGEND_TITLE_SIZE = 6.5
+LEGEND_TEXT_SIZE = 8
+LEGEND_TITLE_SIZE = 8.5
 
 
 def make_text_bold(ax: plt.Axes) -> None:
@@ -67,7 +67,7 @@ def draw_heatmap(
     abbreviations = {"average": "A", "rare": "R", "uniform": "U"}
     x_labels = [f"{abbreviations[mode]}\n{degree}" for mode, degree in COMBINATIONS]
     y_labels = [
-        f"{abbreviations[mode]}\n{degree}{'*' if (mode, degree) in partial_rows else ''}"
+        f"{abbreviations[mode]} {degree}{'*' if (mode, degree) in partial_rows else ''}"
         for mode, degree in COMBINATIONS
     ]
     ax.set_xticks(range(12), labels=x_labels)
@@ -151,10 +151,11 @@ def draw_heatmap(
     colorbar.ax.yaxis.set_ticks_position("right")
     colorbar.ax.yaxis.set_label_position("right")
     colorbar.ax.tick_params(labelsize=TICK_LABEL_SIZE)
+    colorbar.ax.yaxis.label.set_fontweight("bold")
     for label in colorbar.ax.get_yticklabels():
         label.set_fontweight("bold")
     colorbar.ax.text(
-        0.8,
+        1.5,
         1.08,
         "A = Average\nR = Rare\nU = Uniform",
         transform=colorbar.ax.transAxes,
@@ -256,7 +257,7 @@ def draw_trends(ax: plt.Axes, distributions: list[Distribution]) -> None:
         handles=distribution_handles,
         title="Color distribution",
         loc="upper right",
-        bbox_to_anchor=(0.98, 0.79),
+        bbox_to_anchor=(0.98, 0.76),
         frameon=True,
         facecolor="white",
         edgecolor="black",
@@ -351,12 +352,14 @@ def draw_overlaid_histograms(
         prop={"size": LEGEND_TEXT_SIZE, "weight": "bold"},
         title_fontproperties={"size": LEGEND_TITLE_SIZE, "weight": "bold"},
     )
+    for label in degree_legend.get_texts():
+        label.set_fontweight("bold")
     ax.add_artist(degree_legend)
     ax.legend(
         handles=color_handles,
         title="Color distribution",
         loc="upper right",
-        bbox_to_anchor=(0.875, 1.0),
+        bbox_to_anchor=(0.98, 0.5),
         frameon=True,
         facecolor="white",
         edgecolor="black",
@@ -373,39 +376,39 @@ def create_figure(
     partial_heatmap_rows: set[tuple[str, int]],
 ) -> None:
     fig = plt.figure(figsize=(10, 7.1))
-    # One shared grid keeps every panel aligned.  The middle column extends the
-    # heatmap but acts as whitespace between the compact histogram columns.
+    # The histogram occupies the top row; trend and heatmap panels sit below.
     grid = fig.add_gridspec(
         2,
-        3,
-        width_ratios=(0.65, 0.05, 0.65),
-        height_ratios=(1.12, 0.72),
+        1,
+        height_ratios=(0.78, 1.12),
         hspace=0.24,
-        wspace=0.07,
     )
 
-    heatmap_ax = fig.add_subplot(grid[0, 0:2])
-    trend_ax = fig.add_subplot(grid[0, 2])
+    histogram_ax = fig.add_subplot(grid[0, :])
+    bottom_grid = grid[1, 0].subgridspec(
+        1, 2, width_ratios=(1.2, 1.0), wspace=0.24
+    )
+    trend_ax = fig.add_subplot(bottom_grid[0, 0])
+    heatmap_ax = fig.add_subplot(bottom_grid[0, 1])
     draw_heatmap(fig, heatmap_ax, matrix, partial_heatmap_rows)
     draw_trends(trend_ax, distributions)
-    # Give the colorbar annotations more breathing room by shifting the entire
-    # heatmap group slightly left without changing the other panel widths.
-    heatmap_position = heatmap_ax.get_position()
-    heatmap_ax.set_position(
-        [
-            heatmap_position.x0 - 0.012,
-            heatmap_position.y0,
-            heatmap_position.width,
-            heatmap_position.height,
-        ]
-    )
 
-    histogram_ax = fig.add_subplot(grid[1, :])
     draw_overlaid_histograms(histogram_ax, distributions)
 
-    fig.subplots_adjust(left=0.07, right=0.985, top=0.975, bottom=0.085)
+    fig.subplots_adjust(left=0.07, right=0.97, top=0.975, bottom=0.085)
+    histogram_position = histogram_ax.get_position()
+    histogram_ax.set_position(
+        [
+            histogram_position.x0 + 0.01,
+            histogram_position.y0 + 0.01,
+            histogram_position.width + 0.04,
+            histogram_position.height + 0.03,
+        ]
+    )
     fig.savefig(output_path, dpi=300, bbox_inches="tight")
+    fig.savefig(output_path.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
+    print(f"Wrote figure PDF to {output_path.with_suffix('.pdf')}")
 
 
 def parse_args() -> argparse.Namespace:
