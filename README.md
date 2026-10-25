@@ -17,11 +17,11 @@ conda env create -f environment.yml
 conda activate most-informative-subgraph
 ```
 
-The original experiments used the public
-[Subgraph Filter Suite](https://github.com/subgraph-filter-suit-project/subgraph_filter_suit)
-at commit `b4a90b08a2d418b137f06edd09044da400b567d8`. It is not required for
-dataset generation or figure reproduction. Its C++ source is not vendored
-here; install it separately only when inspecting the original implementation:
+
+The original experiments used the public [Subgraph Filter Suite](https://github.com/subgraph-filter-suit-project/subgraph_filter_suit) at commit `b4a90b08a2d418b137f06edd09044da400b567d8`. 
+This repository contains the C++ implementations of VISTA, VISTA+, and Graphlets Enumeration. It is not required for dataset generation or figure reproduction. 
+Its C++ source is not included here; install it separately to inspect the original implementation:
+
 
 ```bash
 git clone https://github.com/subgraph-filter-suit-project/subgraph_filter_suit.git
