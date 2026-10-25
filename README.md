@@ -181,13 +181,4 @@ Bounds, and Estimation*
 
 `[Complete author list, venue or manuscript status, year, and DOI or arXiv identifier to be provided]`
 
-## License
 
-`[Repository code license to be provided]`
-
-Third-party datasets and the external Subgraph Filter Suite remain subject to
-their respective licenses.
-
-## Contact
-
-`[Maintainer name and contact email or preferred issue tracker to be provided]`
