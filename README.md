@@ -174,11 +174,3 @@ creates new stochastic benchmark instances and does not recreate the
 undistributed original instances. Detailed boundaries and unresolved items are
 listed in [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
-## Citation
-
-**Title:** *The Most Informative Subgraph of a Vertex-Colored Graph: Definition,
-Bounds, and Estimation*
-
-`[Complete author list, venue or manuscript status, year, and DOI or arXiv identifier to be provided]`
-
-
